@@ -36,7 +36,7 @@ module JavaBuildpack
 
       # (see JavaBuildpack::Component::BaseComponent#release)
       def release
-        @droplet.java_opts.add_agentpath_with_props(jvmkill_agent, 'printHeapHistogram' => '1')
+        @droplet.java_opts.add_agentpath_with_props(jvmkill_agent, 'printHeapHistogram' => '1', 'time' => '10')
       end
 
       protected
