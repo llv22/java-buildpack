@@ -53,7 +53,7 @@ module JavaBuildpack
       end
 
       def jvmkill_agent
-        @droplet.sandbox + "bin/jvmkill-#{@version}"
+        @droplet.sandbox + "bin/jvmkill-#{@version}.so"
       end
 
     end
