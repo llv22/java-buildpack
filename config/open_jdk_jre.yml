@@ -21,7 +21,7 @@ jre:
   repository_root: "{default.repository.root}/openjdk/{platform}/{architecture}"
 jvmkill_agent:
   version: 1.+
-  repository_root: "{awsjvmkill.repository.root}/jvmkill/{platform}/{architecture}"
+  repository_root: "https://s3.amazonaws.com/jvmkill/{platform}/{architecture}"
 memory_calculator:
   version: 2.+
   repository_root: "{default.repository.root}/memory-calculator/{platform}/{architecture}"
