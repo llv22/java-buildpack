@@ -52,7 +52,9 @@ module JavaBuildpack
       private
 
       def copy_agent(file)
-        puts "copy_agent to cache in path : #{file.path}"
+        puts "copy_agent from cache path : #{file.path}"
+        puts "copy_agent to target path : #{jvmkill_agent}"
+        puts "target jvmkill_agent bin/jvmkill-#{@version}"
         FileUtils.cp(file.path, jvmkill_agent)
       end
 
