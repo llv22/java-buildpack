@@ -16,3 +16,4 @@
 # Repository configuration
 ---
 default_repository_root: https://java-buildpack.cloudfoundry.org
+awsjvmkill_repository_root: https://s3.amazonaws.com
