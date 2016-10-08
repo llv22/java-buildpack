@@ -51,6 +51,7 @@ module JavaBuildpack
       private
 
       def copy_agent(file)
+        puts "copy_agent to #{file.path}"
         FileUtils.cp(file.path, jvmkill_agent)
       end
 
