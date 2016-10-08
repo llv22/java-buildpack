@@ -28,6 +28,7 @@ module JavaBuildpack
       # (see JavaBuildpack::Component::BaseComponent#compile)
       def compile
         download(@version, @uri) do |file|
+          puts "FileUtils.mkdir_p : #{jvmkill_agent.parent}"
           FileUtils.mkdir_p jvmkill_agent.parent
           copy_agent file
           jvmkill_agent.chmod 0755
@@ -51,7 +52,7 @@ module JavaBuildpack
       private
 
       def copy_agent(file)
-        puts "copy_agent to #{file.path}"
+        puts "copy_agent to cache in path : #{file.path}"
         FileUtils.cp(file.path, jvmkill_agent)
       end
 
