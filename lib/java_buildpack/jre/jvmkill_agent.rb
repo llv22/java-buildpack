@@ -37,8 +37,9 @@ module JavaBuildpack
 
       # (see JavaBuildpack::Component::BaseComponent#release)
       def release
-        @droplet.java_opts.add_agentpath(jvmkill_agent)
-        # @droplet.java_opts.add_agentpath_with_props(jvmkill_agent, 'printHeapHistogram' => '1')
+        # @droplet.java_opts.add_agentpath(jvmkill_agent)
+        # print out for HeapHistogram during out of memory happened
+        @droplet.java_opts.add_agentpath_with_props(jvmkill_agent, 'printHeapHistogram' => '1')
         # @droplet.java_opts.add_agentpath_with_props(jvmkill_agent, {'printHeapHistogram' => '1', 'time' => '10'})
       end
 
