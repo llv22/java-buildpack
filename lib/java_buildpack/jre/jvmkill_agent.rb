@@ -37,7 +37,7 @@ module JavaBuildpack
 
       # (see JavaBuildpack::Component::BaseComponent#release)
       def release
-        # @droplet.java_opts.add_agentpath(jvmkill_agent)
+        @droplet.java_opts.add_agentpath(jvmkill_agent)
         # @droplet.java_opts.add_agentpath_with_props(jvmkill_agent, 'printHeapHistogram' => '1')
         # @droplet.java_opts.add_agentpath_with_props(jvmkill_agent, {'printHeapHistogram' => '1', 'time' => '10'})
       end
@@ -54,7 +54,7 @@ module JavaBuildpack
       def copy_agent(file)
         puts "copy_agent from cache path : #{file.path}"
         puts "copy_agent to target path : #{jvmkill_agent}"
-        puts "target jvmkill_agent bin/jvmkill-#{@version}"
+        puts "target drop stage location : bin/jvmkill-#{@version}"
         FileUtils.cp(file.path, jvmkill_agent)
       end
 
