@@ -55,7 +55,22 @@ module JavaBuildpack
       def release
         @droplet
           .java_opts
-          .add_system_property('java.io.tmpdir', '$TMPDIR')
+          .add_system_property('java.io.tmpdir', '$TMPDIR')          
+          .push('-XX:+HeapDumpOnOutOfMemoryError')
+          .push('-XX:+PrintGCDateStamps')
+          .push('-XX:+PrintGCDetails')
+          .push('-Xloggc:/home/vcap/app/jvm-gc.log')
+          .push('-XX:NativeMemoryTracking=detail')
+          .add_option('-XX:HeapDumpPath', '/home/vcap/app/oom_heapdump.hprof')
+          .add_option('-XX:OnOutOfMemoryError', killjava)
+      end
+
+
+      private
+      
+      # killjava script location
+      def killjava
+        @droplet.sandbox + 'bin/killjava.sh'
       end
 
     end
